@@ -219,8 +219,15 @@ module Autoproj
                     )
                 end
                 if osdeps_interaction(packages, user_shell_script)
-                    Autoproj.message "  installing OS packages: "\
-                                     "#{packages.sort.join(', ')}"
+                    if needs_root?
+                        #if we are going to use sudo, always tell the user
+                        #why he is being asked for credentials
+                        puts "  installing OS packages: "\
+                             "#{packages.sort.join(', ')}"
+                    else
+                        Autoproj.message "  installing OS packages: "\
+                                         "#{packages.sort.join(', ')}"
+                    end
 
                     if Autoproj.verbose
                         Autoproj.message "Generating installation script for "\
