@@ -19,6 +19,8 @@ module Autoproj
                     return
                 end
 
+                ws.os_package_installer.silent = options[:silent]
+
                 _, osdep_packages, resolved_selection, =
                     finalize_setup(user_selection)
 
