@@ -1,2 +1,3 @@
 osdeps_mode: 'all'
 apt_dpkg_update: true
+emerge_update: true

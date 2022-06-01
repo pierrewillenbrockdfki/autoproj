@@ -42,7 +42,7 @@ module Autoproj
                     # on config questions as opposed to the non-empty check
                     File.open(expand_path("seed-config.yml"), "w") do |io|
                         YAML.dump(
-                            { "osdeps_mode" => "all", "apt_dpkg_update" => true }, io
+                            { "osdeps_mode" => "all", "apt_dpkg_update" => true, "emerge_update" => true }, io
                         )
                     end
                 end
